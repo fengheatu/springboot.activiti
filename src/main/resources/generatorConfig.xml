@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!--数据库驱动jar -->
+    <classPathEntry
+            location="D:\develop\repo-zg\mysql\mysql-connector-java\5.1.43\mysql-connector-java-5.1.43.jar"></classPathEntry>
+
+    <context id="common" targetRuntime="MyBatis3">
+
+        <commentGenerator>
+            <!--去除注释  -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!--数据库连接 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql:///springboot_activiti"
+                        userId="root" password="root"/>
+
+        <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer true，把JDBC DECIMAL 和
+            NUMERIC 类型解析为java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!--生成实体类 指定包名 以及生成的地址 （可以自定义地址，但是路径不存在不会自动创建  使用Maven生成在target目录下，会自动创建） -->
+        <javaModelGenerator targetPackage="com.river.model"
+                            targetProject="E:\practice_space\springboot.activiti\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!--生成SQLMAP文件 -->
+        <sqlMapGenerator targetPackage="com.river.dao"
+                         targetProject="E:\practice_space\springboot.activiti\src\main\resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!--生成Dao文件 可以配置 type="XMLMAPPER"生成xml的dao实现  context id="DB2Tables" 修改targetRuntime="MyBatis3"  -->
+        <javaClientGenerator targetPackage="com.river.dao"
+                             targetProject="E:\practice_space\springboot.activiti\src\main\java"
+                             type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 配置不生成Exmaple文件 -->
+        <!--对应数据库表 mysql可以加入主键自增 字段命名 忽略某字段等-->
+        <table tableName="test" domainObjectName="Test"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+
+
+    </context>
+</generatorConfiguration>
