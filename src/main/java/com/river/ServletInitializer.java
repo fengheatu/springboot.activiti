@@ -1,5 +1,6 @@
 package com.river;
 
+import org.activiti.spring.boot.ProcessEngineConfigurationConfigurer;
 import org.activiti.spring.boot.SecurityAutoConfiguration;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

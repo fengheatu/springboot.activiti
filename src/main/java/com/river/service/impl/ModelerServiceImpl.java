@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author: he.feng
@@ -61,5 +62,16 @@ public class ModelerServiceImpl implements ModelerService {
             e.printStackTrace();
             return null;
         }
+    }
+
+    /**
+     * 获取模型列表
+     *
+     * @return
+     */
+    @Override
+    public List<Model> queryModelList() {
+        List<Model> list = repositoryService.createModelQuery().list();
+        return list;
     }
 }
