@@ -1,4 +1,4 @@
-package com.river.controller;
+package com.river.controller.modeler;
 
 import com.river.service.ModelerService;
 import org.apache.commons.lang3.StringUtils;

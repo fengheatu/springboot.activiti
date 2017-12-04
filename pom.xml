@@ -116,11 +116,11 @@
       <version>${activiti.version}</version>
     </dependency>
 
-    <dependency>
+    <!--<dependency>
       <groupId>org.activiti</groupId>
       <artifactId>activiti-modeler</artifactId>
       <version>${activiti.version}</version>
-    </dependency>
+    </dependency>-->
 
 
   </dependencies>
